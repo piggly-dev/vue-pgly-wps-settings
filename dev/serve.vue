@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import { 
 	PglyAsyncButton,
+	PglyLinkButton,
 	PglySpinner, 
 	PglySyncButton 
 } from '@/entry.esm';
@@ -11,6 +12,7 @@ export default defineComponent({
 
 	components: {
 		PglyAsyncButton,
+		PglyLinkButton,
 		PglySpinner,
 		PglySyncButton,
 	},
@@ -27,109 +29,109 @@ export default defineComponent({
 
 <template>
 	<div class="pgly-wps--settings">
-		<pgly-async-button
-			label="Click me"
+		<pgly-link-button
+			label="Go to new page"
 			color="primary"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="info"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="success"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="accent"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="warning"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="danger"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			color="primary"
 			:disabled="true"
-			:action="clicked"/>
+			link="https://google.com"/>
 		<div></div>
-		<pgly-async-button
-			label="Click me"
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="primary"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="info"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="success"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="accent"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="warning"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="danger"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="compact"
 			color="primary"
 			:disabled="true"
-			:action="clicked"/>
+			link="https://google.com"/>
 		<div></div>
-		<pgly-async-button
-			label="Click me"
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="primary"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="info"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="success"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="accent"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="warning"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="danger"
-			:action="clicked"/>
-		<pgly-async-button
-			label="Click me"
+			link="https://google.com"/>
+		<pgly-link-button
+			label="Go to new page"
 			type="expanded"
 			color="primary"
 			:disabled="true"
-			:action="clicked"/>
+			link="https://google.com"/>
 	</div>
 </template>
 
