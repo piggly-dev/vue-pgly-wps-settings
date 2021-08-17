@@ -1,4 +1,7 @@
 export const colors = [
+	'regular',
+	'transparent',
+	'dark',
 	'primary',
 	'link',
 	'info',
@@ -8,4 +11,16 @@ export const colors = [
 	'accent',
 	'white',
 	'black'
+];
+
+export const sizes = [
+	'normal',
+	'medium',
+	'large'
+];
+
+export const buttonTypes = [
+	'regular',
+	'compact',
+	'expanded'
 ];
