@@ -1,4 +1,5 @@
 export const colors = [
+	'regular',
 	'primary',
 	'link',
 	'info',
