@@ -4,26 +4,36 @@
 		:disabled="disabled"
 		@click="onClick">
 		{{ label }}
+		<pgly-spinner
+			:color="spinnerColor"
+			v-if="running"/>
 	</button>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "@vue/runtime-core";
 
+import { PglySpinner } from '@/entry.esm';
+import { EButtonTypes } from '@/core/enums';
 import { buttonTypes, colors } from '@/core/constants';
 
 export default defineComponent({
-	name: 'PglySyncButton',
+	name: 'PglyAsyncButton',
+
+	components: {
+		PglySpinner
+	},
 
 	data () {
 		return {
-			running: false
+			running: false,
+			spinnerColor: 'white'
 		};
 	},
 
 	props: {
 		action: {
-			type: Function as PropType<()=>void>,
+			type: Function as PropType<()=>Promise<void>>,
 			required: true
 		},
 
@@ -58,6 +68,7 @@ export default defineComponent({
 		mountClasses () : string {
 			const classes = [
 				'pgly-wps--button',
+				'pgly-async--behaviour',
 				`pgly-wps-is-${this.type}`
 			];
 
@@ -65,6 +76,12 @@ export default defineComponent({
 			{ classes.push('pgly-wps-is-disabled'); }
 			else 
 			{ classes.push(`pgly-wps-is-${this.color}`); }
+
+			if ( this.type === EButtonTypes.COMPACT )
+			{ this.spinnerColor = this.color; }
+
+			if ( this.running )
+			{ classes.push('pgly-loading--state'); }
 
 			return classes.join(' ');
 		}
@@ -79,12 +96,17 @@ export default defineComponent({
 		run () : void {
 			this.running = true;
 
-			try
-			{ this.action(); }
-			catch ( err: any )
-			{ this.$emit('buttonError', err); }
-
-			this.running = false;
+			this
+				.action()
+				.then(res => {
+					this.$emit('buttonLoaded', res);
+				})
+				.catch((err: Error) => {
+					this.$emit('buttonError', err);
+				})
+				.finally(() => {
+					this.running = false;
+				})
 		}
 	}
 });
