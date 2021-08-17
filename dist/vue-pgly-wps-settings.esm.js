@@ -1105,7 +1105,11 @@ var script$g = defineComponent({
 
   data() {
     return {
+<<<<<<< HEAD
       lastClicked: ''
+=======
+      lastClicked: this.items[0].key || ''
+>>>>>>> release/0.1.1
     };
   },
 

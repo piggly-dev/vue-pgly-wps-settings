@@ -1145,7 +1145,11 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
   name: 'PglyNavigator',
   data: function data() {
     return {
+<<<<<<< HEAD
       lastClicked: ''
+=======
+      lastClicked: this.items[0].key || ''
+>>>>>>> release/0.1.1
     };
   },
   props: {
