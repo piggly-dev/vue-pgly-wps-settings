@@ -12,3 +12,4 @@ export { default as PglyToast } from './elements/PglyToast.vue';
 
 // Components
 export { default as PglyToaster } from './components/PglyToaster.vue';
+export { default as PglyNotifications } from './components/PglyNotifications.vue';

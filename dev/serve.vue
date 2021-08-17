@@ -6,12 +6,13 @@ import {
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNotification,
+	PglyNotifications,
 	PglySpinner, 
 	PglySyncButton,
 	PglyToaster
 } from '@/entry.esm';
 
-import { IToast } from '@/core/interfaces';
+import { INotification, IToast } from '@/core/interfaces';
 
 export default defineComponent({
 	name: 'ServeDev',
@@ -22,6 +23,7 @@ export default defineComponent({
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNotification,
+		PglyNotifications,
 		PglySpinner,
 		PglySyncButton,
 		PglyToaster
@@ -29,7 +31,8 @@ export default defineComponent({
 
 	data () {
 		return {
-			toasts: [] as Array<IToast>
+			toasts: [] as Array<IToast>,
+			notifications: [] as Array<INotification>
 		}
 	},
 
@@ -49,14 +52,28 @@ export default defineComponent({
 				return i.id !== id;
 			});
 		},
+
+		addNotification ( notification: INotification ) : void {
+			if ( !notification.id ) notification.id = this.notifications.length+1;
+
+			this.notifications.push(notification);
+		},
+
+		onNofiticationClose ( id: number ) : void {
+			this.notifications = this.notifications.filter((i: INotification) => {
+				return i.id !== id;
+			});
+		},
 	}
 });
 </script>
 
 <template>
 	<div class="pgly-wps--settings">
+		<pgly-notifications :notifications="notifications" @notificationClose="onNofiticationClose"/>
 		<pgly-toaster :toasts="toasts" @toastClose="onToastClose"/>
 		<pgly-sync-button label="Add Toast" :action="() => { this.addToast({body: 'Toast', color: 'success'}); }"/>
+		<pgly-sync-button label="Add Notification" :action="() => { this.addNotification({body: 'Notification', color: 'primary'}); }"/>
 	</div>
 </template>
 

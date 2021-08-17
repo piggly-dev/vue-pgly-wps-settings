@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "@vue/runtime-core";
 
-import { PglySpinner } from '@/entry.esm';
+import PglySpinner from '@/lib-components/elements/PglySpinner.vue';
 import { EButtonTypes } from '@/core/enums';
 import { buttonTypes, colors } from '@/core/constants';
 
