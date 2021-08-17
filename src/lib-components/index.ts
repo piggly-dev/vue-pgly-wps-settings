@@ -17,6 +17,7 @@ export { default as PglySyncButton } from './elements/PglySyncButton.vue';
 export { default as PglyToast } from './elements/PglyToast.vue';
 
 // Forms
+export { default as PglyBasicCheckbox } from './forms/PglyBasicCheckbox.vue';
 export { default as PglyBasicInput } from './forms/PglyBasicInput.vue';
 
 // Grid

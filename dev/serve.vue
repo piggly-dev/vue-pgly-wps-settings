@@ -4,6 +4,7 @@ import {
 	PglyAsyncButton,
 	PglyBadge,
 	PglyBadges,
+	PglyBasicCheckbox,
 	PglyBasicInput,
 	PglyColumn,
 	PglyExplorer,
@@ -26,6 +27,7 @@ export default defineComponent({
 		PglyAsyncButton,
 		PglyBadge,
 		PglyBadges,
+		PglyBasicCheckbox,
 		PglyBasicInput,
 		PglyColumn,
 		PglyExplorer,
@@ -42,10 +44,14 @@ export default defineComponent({
 	data () {
 		return {
 			fields: {
+				enabled: {
+					value: false,
+					error: { state: false } as IErrorInput
+				},
 				full_name: {
 					value: '',
 					error: { state: false } as IErrorInput
-				}
+				} 
 			},
 			toasts: [] as Array<IToast>,
 			notifications: [] as Array<INotification>,
@@ -114,6 +120,18 @@ export default defineComponent({
 
 		<pgly-row>
 			<pgly-column>
+			<pgly-basic-checkbox
+				id="enabled"
+				label="Enable"
+				placeholder="Enable this feature"
+				:error="fields.enabled.error"
+				v-model="fields.enabled.value">
+			</pgly-basic-checkbox>
+			</pgly-column>
+		</pgly-row>
+
+		<pgly-row>
+			<pgly-column>
 				<pgly-basic-input
 					id="full-name"
 					label="Full name"
@@ -135,5 +153,6 @@ export default defineComponent({
 </template>
 
 <style>
+	html { background-color: #ececec; }
 	@import './assets/pgly-wps-settings.min.css';
 </style>
