@@ -1,0 +1,1 @@
+# vue-pgly-wps-settings
