@@ -6,6 +6,7 @@ import {
 	PglyBadges,
 	PglyBasicCheckbox,
 	PglyBasicInput,
+	PglyBasicSelect,
 	PglyColumn,
 	PglyExplorer,
 	PglyLinkButton,
@@ -18,7 +19,7 @@ import {
 	PglyToaster
 } from '@/entry.esm';
 
-import { IErrorInput, INavigatorItem, INotification, IToast } from '@/core/interfaces';
+import { IErrorInput, INavigatorItem, INotification, ISelectOption, IToast } from '@/core/interfaces';
 
 export default defineComponent({
 	name: 'ServeDev',
@@ -29,6 +30,7 @@ export default defineComponent({
 		PglyBadges,
 		PglyBasicCheckbox,
 		PglyBasicInput,
+		PglyBasicSelect,
 		PglyColumn,
 		PglyExplorer,
 		PglyLinkButton,
@@ -50,6 +52,24 @@ export default defineComponent({
 				},
 				full_name: {
 					value: '',
+					error: { state: false } as IErrorInput
+				},
+				numbers: {
+					value: undefined,
+					options: [
+						{
+							label: 'One',
+							value: 'one'
+						},
+						{
+							label: 'Two',
+							value: 'two'
+						},
+						{
+							label: 'Three',
+							value: 'three'
+						}
+					] as Array<ISelectOption>,
 					error: { state: false } as IErrorInput
 				} 
 			},
@@ -144,6 +164,19 @@ export default defineComponent({
 						It's must be your full name.
 					</template>
 				</pgly-basic-input>
+			</pgly-column>
+		</pgly-row>
+
+		<pgly-row>
+			<pgly-column>
+			<pgly-basic-select
+				id="numbers"
+				label="Numbers"
+				placeholder="Select one number"
+				:error="fields.numbers.error"
+				:options="fields.numbers.options"
+				v-model="fields.numbers.value">
+			</pgly-basic-select>
 			</pgly-column>
 		</pgly-row>
 		

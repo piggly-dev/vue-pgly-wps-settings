@@ -10,6 +10,7 @@
 			{{ label }}
 		</label>
 		<div 
+			:tabindex="tabindex"
 			:class="mountCheckboxClasses"
 			@click="e => (onChanged(!modelValue))">
 			<div class="pgly-wps--icon"></div>
@@ -43,6 +44,11 @@ export default defineComponent({
 		modelValue: {
 			type: Boolean,
 			default: false
+		},
+
+		tabindex: {
+			type: Number,
+			default: 0
 		},
 
 		id: {

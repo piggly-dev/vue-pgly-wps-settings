@@ -15,6 +15,7 @@
 				{'pgly-wps--tagged': tag}
 			]">
 			<input
+				:tabindex="tabindex"
 				:id="id"
 				:name="id"
 				:placeholder="placeholder"
@@ -51,10 +52,19 @@ import { IErrorInput } from "@/core/interfaces";
 export default defineComponent({
 	name: 'PglyBasicInput',
 
+	emits: [
+		'update:modelValue'
+	],
+
 	props: {
 		modelValue: {
 			type: String,
 			default: ''
+		},
+
+		tabindex: {
+			type: Number,
+			default: 0
 		},
 
 		id: {
