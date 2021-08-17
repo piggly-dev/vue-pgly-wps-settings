@@ -4,7 +4,7 @@
 		:class="[
 			'pgly-wps--notification',
 			`pgly-wps-is-${color}`,
-			{ 'pgly-wps-is-light': isLight }
+			{ 'pgly-wps-is-light': light }
 		]">
 		<button 
 			v-if="canClose" 
@@ -57,7 +57,7 @@ export default defineComponent({
 			default: 0
 		},
 
-		isLight: {
+		light: {
 			type: Boolean,
 			default: false
 		}

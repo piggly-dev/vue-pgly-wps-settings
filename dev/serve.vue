@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import { 
 	PglyAsyncButton,
+	PglyExplorer,
 	PglyLinkButton,
 	PglyNotification,
 	PglySpinner, 
@@ -13,6 +14,7 @@ export default defineComponent({
 
 	components: {
 		PglyAsyncButton,
+		PglyExplorer,
 		PglyLinkButton,
 		PglyNotification,
 		PglySpinner,

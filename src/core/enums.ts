@@ -1,4 +1,6 @@
 export enum EColors {
+	REGULAR = 'regular',
+	TRANSPARENT = 'transparent',
 	PRIMARY = 'primary',
 	LINK = 'link',
 	INFO = 'info',

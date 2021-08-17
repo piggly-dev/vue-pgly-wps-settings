@@ -1,0 +1,74 @@
+<template>
+	<div 
+		:class="[
+			'pgly-wps--explorer',
+			`pgly-wps-is-${color}`,
+			{ 'pgly-wps-is-light': light },
+			{ 'pgly-wps-is-compact': compact }
+		]">
+		<div 
+			v-if="tooltip"
+			class="pgly-wps--tooltip">
+			<svg 
+				class="pgly-wps--info"
+				baseProfile="tiny" 
+				version="1.2" 
+				viewBox="0 0 24 24" 
+				xml:space="preserve" 
+				xmlns="http://www.w3.org/2000/svg">
+				<path d="m13.839 17.525c-6e-3 2e-3 -0.559 0.186-1.039 0.186-0.265 0-0.372-0.055-0.406-0.079-0.168-0.117-0.48-0.336 0.054-1.4l1-1.994c0.593-1.184 0.681-2.329 0.245-3.225-0.356-0.733-1.039-1.236-1.92-1.416-0.317-0.065-0.639-0.097-0.958-0.097-1.849 0-3.094 1.08-3.146 1.126-0.179 0.158-0.221 0.42-0.102 0.626 0.12 0.206 0.367 0.3 0.595 0.222 5e-3 -2e-3 0.559-0.187 1.039-0.187 0.263 0 0.369 0.055 0.402 0.078 0.169 0.118 0.482 0.34-0.051 1.402l-1 1.995c-0.594 1.185-0.681 2.33-0.245 3.225 0.356 0.733 1.038 1.236 1.921 1.416 0.314 0.063 0.636 0.097 0.954 0.097 1.85 0 3.096-1.08 3.148-1.126 0.179-0.157 0.221-0.42 0.102-0.626-0.12-0.205-0.369-0.297-0.593-0.223z"/>
+				<circle cx="13" cy="6.001" r="2.5"/>
+			</svg>
+			<div class="pgly-wps--data">
+				{{ tooltip }}
+			</div>
+		</div>
+		<strong>{{ label }}</strong>
+		<span>{{ value }}</span>
+	</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+import { colors } from '@/core/constants';
+
+export default defineComponent({
+	name: 'PglyExplorer',
+
+	props: {
+		color: {
+			type: String,
+			default: 'primary',
+			validator: (value: string) => {
+				return colors.indexOf(value) !== -1;
+			}
+		},
+
+		label: {
+			type: String,
+			required: true
+		},
+
+		value: {
+			type: String,
+			required: true
+		},
+
+		tooltip: {
+			type: String,
+			default: undefined
+		},
+
+		compact: {
+			type: Boolean,
+			default: false
+		},
+
+		light: {
+			type: Boolean,
+			default: false
+		}
+	}
+});
+</script>

@@ -2,6 +2,7 @@
 
 // Elements
 export { default as PglyAsyncButton } from './elements/PglyAsyncButton.vue';
+export { default as PglyExplorer } from './elements/PglyExplorer.vue';
 export { default as PglyLinkButton } from './elements/PglyLinkButton.vue';
 export { default as PglyNotification } from './elements/PglyNotification.vue';
 export { default as PglySpinner } from './elements/PglySpinner.vue';
