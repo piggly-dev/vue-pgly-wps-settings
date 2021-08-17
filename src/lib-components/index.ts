@@ -18,3 +18,7 @@ export { default as PglyToast } from './elements/PglyToast.vue';
 
 // Forms
 export { default as PglyBasicInput } from './forms/PglyBasicInput.vue';
+
+// Grid
+export { default as PglyRow } from './grid/PglyRow.vue';
+export { default as PglyColumn } from './grid/PglyColumn.vue';

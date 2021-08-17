@@ -5,11 +5,13 @@ import {
 	PglyBadge,
 	PglyBadges,
 	PglyBasicInput,
+	PglyColumn,
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNavigator,
 	PglyNotification,
 	PglyNotifications,
+	PglyRow,
 	PglySpinner, 
 	PglySyncButton,
 	PglyToaster
@@ -25,11 +27,13 @@ export default defineComponent({
 		PglyBadge,
 		PglyBadges,
 		PglyBasicInput,
+		PglyColumn,
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNavigator,
 		PglyNotification,
 		PglyNotifications,
+		PglyRow,
 		PglySpinner,
 		PglySyncButton,
 		PglyToaster
@@ -108,18 +112,22 @@ export default defineComponent({
 		<pgly-toaster :toasts="toasts" @toastClose="onToastClose"/>
 		<pgly-navigator :items="items"/>
 
-		<pgly-basic-input
-			id="full-name"
-			label="Full name"
-			placeholder="Fill with your full name..."
-			tag="Example"
-			:required="true"
-			:error="fields.full_name.error"
-			v-model="fields.full_name.value">
-			<template v-slot:description>
-				It's must be your full name.
-			</template>
-		</pgly-basic-input>
+		<pgly-row>
+			<pgly-column>
+				<pgly-basic-input
+					id="full-name"
+					label="Full name"
+					placeholder="Fill with your full name..."
+					tag="Example"
+					:required="true"
+					:error="fields.full_name.error"
+					v-model="fields.full_name.value">
+					<template v-slot:description>
+						It's must be your full name.
+					</template>
+				</pgly-basic-input>
+			</pgly-column>
+		</pgly-row>
 		
 		<pgly-sync-button label="Add Toast" :action="() => { this.addToast({body: 'Toast', color: 'success'}); }"/>
 		<pgly-sync-button label="Add Notification" :action="() => { this.addNotification({body: 'Notification', color: 'primary'}); }"/>
