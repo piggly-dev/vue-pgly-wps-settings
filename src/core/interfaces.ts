@@ -9,6 +9,11 @@ export interface IBadge {
 	body: string
 };
 
+export interface IErrorInput {
+	state: boolean,
+	message?: string
+};
+
 export interface INavigatorItem {
 	key: string,
 	label: string,
@@ -22,6 +27,11 @@ export interface INotification {
 	light?: boolean,
 	body: string
 };
+
+export interface ISelectOption {
+	label: string,
+	value: string
+}
 
 export interface IToast {
 	id?: number,

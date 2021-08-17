@@ -4,17 +4,22 @@ import {
 	PglyAsyncButton,
 	PglyBadge,
 	PglyBadges,
+	PglyBasicCheckbox,
+	PglyBasicInput,
+	PglyBasicSelect,
+	PglyColumn,
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNavigator,
 	PglyNotification,
 	PglyNotifications,
+	PglyRow,
 	PglySpinner, 
 	PglySyncButton,
 	PglyToaster
 } from '@/entry.esm';
 
-import { INavigatorItem, INotification, IToast } from '@/core/interfaces';
+import { IErrorInput, INavigatorItem, INotification, ISelectOption, IToast } from '@/core/interfaces';
 
 export default defineComponent({
 	name: 'ServeDev',
@@ -23,11 +28,16 @@ export default defineComponent({
 		PglyAsyncButton,
 		PglyBadge,
 		PglyBadges,
+		PglyBasicCheckbox,
+		PglyBasicInput,
+		PglyBasicSelect,
+		PglyColumn,
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNavigator,
 		PglyNotification,
 		PglyNotifications,
+		PglyRow,
 		PglySpinner,
 		PglySyncButton,
 		PglyToaster
@@ -35,6 +45,34 @@ export default defineComponent({
 
 	data () {
 		return {
+			fields: {
+				enabled: {
+					value: false,
+					error: { state: false } as IErrorInput
+				},
+				full_name: {
+					value: '',
+					error: { state: false } as IErrorInput
+				},
+				numbers: {
+					value: undefined,
+					options: [
+						{
+							label: 'One',
+							value: 'one'
+						},
+						{
+							label: 'Two',
+							value: 'two'
+						},
+						{
+							label: 'Three',
+							value: 'three'
+						}
+					] as Array<ISelectOption>,
+					error: { state: false } as IErrorInput
+				} 
+			},
 			toasts: [] as Array<IToast>,
 			notifications: [] as Array<INotification>,
 			items: [
@@ -99,11 +137,55 @@ export default defineComponent({
 		<pgly-notifications :notifications="notifications" @notificationClose="onNofiticationClose"/>
 		<pgly-toaster :toasts="toasts" @toastClose="onToastClose"/>
 		<pgly-navigator :items="items"/>
+
+		<pgly-row>
+			<pgly-column>
+			<pgly-basic-checkbox
+				id="enabled"
+				label="Enable"
+				placeholder="Enable this feature"
+				:error="fields.enabled.error"
+				v-model="fields.enabled.value">
+			</pgly-basic-checkbox>
+			</pgly-column>
+		</pgly-row>
+
+		<pgly-row>
+			<pgly-column>
+				<pgly-basic-input
+					id="full-name"
+					label="Full name"
+					placeholder="Fill with your full name..."
+					tag="Example"
+					:required="true"
+					:error="fields.full_name.error"
+					v-model="fields.full_name.value">
+					<template v-slot:description>
+						It's must be your full name.
+					</template>
+				</pgly-basic-input>
+			</pgly-column>
+		</pgly-row>
+
+		<pgly-row>
+			<pgly-column>
+			<pgly-basic-select
+				id="numbers"
+				label="Numbers"
+				placeholder="Select one number"
+				:error="fields.numbers.error"
+				:options="fields.numbers.options"
+				v-model="fields.numbers.value">
+			</pgly-basic-select>
+			</pgly-column>
+		</pgly-row>
+		
 		<pgly-sync-button label="Add Toast" :action="() => { this.addToast({body: 'Toast', color: 'success'}); }"/>
 		<pgly-sync-button label="Add Notification" :action="() => { this.addNotification({body: 'Notification', color: 'primary'}); }"/>
 	</div>
 </template>
 
 <style>
+	html { background-color: #ececec; }
 	@import './assets/pgly-wps-settings.min.css';
 </style>
