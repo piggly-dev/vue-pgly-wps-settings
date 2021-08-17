@@ -9,6 +9,12 @@ export interface IBadge {
 	body: string
 };
 
+export interface INavigatorItem {
+	key: string,
+	label: string,
+	link?: string
+};
+
 export interface INotification {
 	id?: number,
 	color?: keyof EColors,
