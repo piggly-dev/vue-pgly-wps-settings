@@ -1145,7 +1145,7 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
   name: 'PglyNavigator',
   data: function data() {
     return {
-      lastClicked: ''
+      lastClicked: this.items[0].key || ''
     };
   },
   props: {
