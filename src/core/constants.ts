@@ -9,3 +9,9 @@ export const colors = [
 	'white',
 	'black'
 ];
+
+export const buttonTypes = [
+	'regular',
+	'compact',
+	'expanded'
+];

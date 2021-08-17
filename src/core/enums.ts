@@ -8,4 +8,10 @@ export enum EColors {
 	ACCENT = 'accent',
 	WHITE = 'white',
 	BLACK = 'black',
-}
+};
+
+export enum EButtonTypes {
+	REGULAR = 'regular',
+	COMPACT = 'compact',
+	EXPANDED = 'expanded'
+};
