@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue';
 import { 
 	PglyAsyncButton,
+	PglyBadge,
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNotification,
@@ -14,6 +15,7 @@ export default defineComponent({
 
 	components: {
 		PglyAsyncButton,
+		PglyBadge,
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNotification,
@@ -22,10 +24,8 @@ export default defineComponent({
 	},
 
 	methods: {
-		clicked () : Promise<void> {
-			return new Promise((res) => {
-				setTimeout(()=>res(), 3000);
-			});
+		clicked () : void {
+			console.log('close');
 		}
 	}
 });

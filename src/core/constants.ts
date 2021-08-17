@@ -12,6 +12,12 @@ export const colors = [
 	'black'
 ];
 
+export const sizes = [
+	'normal',
+	'medium',
+	'large'
+];
+
 export const buttonTypes = [
 	'regular',
 	'compact',

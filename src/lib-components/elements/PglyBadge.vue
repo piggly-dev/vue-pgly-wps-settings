@@ -1,35 +1,27 @@
 <template>
 	<div 
 		:class="[
-			'pgly-wps--notification',
+			'pgly-wps--badge',
 			`pgly-wps-is-${color}`,
-			{ 'pgly-wps-is-light': light }
+			`pgly-wps-is-${size}`,
+			{ 'pgly-wps-is-light': light },
+			{ 'pgly-wps-is-rounded': rounded }
 		]">
+		<slot></slot>
 		<button 
 			v-if="close" 
 			class="pgly-wps--delete"
 			@click="onClose"></button>
-		<slot></slot>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "@vue/runtime-core";
 
-import { colors } from '@/core/constants';
+import { colors, sizes } from '@/core/constants';
 
 export default defineComponent({
-	name: 'PglyNotification',
-
-	mounted () {
-		if ( this.timer > 0 )
-		{
-			setTimeout(
-				()=>{ this.onClose() },
-				this.timer
-			);
-		}
-	},
+	name: 'PglyBadge',
 
 	props: {
 		color: {
@@ -40,17 +32,25 @@ export default defineComponent({
 			}
 		},
 
+		size: {
+			type: String,
+			default: 'normal',
+			validator: (value: string) => {
+				return sizes.indexOf(value) !== -1;
+			}
+		},
+
 		close: {
 			type: Function as PropType<()=>void>,
 			default: undefined
 		},
 
-		timer: {
-			type: Number,
-			default: 0
+		light: {
+			type: Boolean,
+			default: false
 		},
 
-		light: {
+		rounded: {
 			type: Boolean,
 			default: false
 		}
