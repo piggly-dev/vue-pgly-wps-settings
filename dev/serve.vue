@@ -4,6 +4,7 @@ import {
 	PglyAsyncButton,
 	PglyBadge,
 	PglyBadges,
+	PglyBasicInput,
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNavigator,
@@ -14,7 +15,7 @@ import {
 	PglyToaster
 } from '@/entry.esm';
 
-import { INavigatorItem, INotification, IToast } from '@/core/interfaces';
+import { IErrorInput, INavigatorItem, INotification, IToast } from '@/core/interfaces';
 
 export default defineComponent({
 	name: 'ServeDev',
@@ -23,6 +24,7 @@ export default defineComponent({
 		PglyAsyncButton,
 		PglyBadge,
 		PglyBadges,
+		PglyBasicInput,
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNavigator,
@@ -35,6 +37,12 @@ export default defineComponent({
 
 	data () {
 		return {
+			fields: {
+				full_name: {
+					value: '',
+					error: { state: false } as IErrorInput
+				}
+			},
 			toasts: [] as Array<IToast>,
 			notifications: [] as Array<INotification>,
 			items: [
@@ -99,6 +107,20 @@ export default defineComponent({
 		<pgly-notifications :notifications="notifications" @notificationClose="onNofiticationClose"/>
 		<pgly-toaster :toasts="toasts" @toastClose="onToastClose"/>
 		<pgly-navigator :items="items"/>
+
+		<pgly-basic-input
+			id="full-name"
+			label="Full name"
+			placeholder="Fill with your full name..."
+			tag="Example"
+			:required="true"
+			:error="fields.full_name.error"
+			v-model="fields.full_name.value">
+			<template v-slot:description>
+				It's must be your full name.
+			</template>
+		</pgly-basic-input>
+		
 		<pgly-sync-button label="Add Toast" :action="() => { this.addToast({body: 'Toast', color: 'success'}); }"/>
 		<pgly-sync-button label="Add Notification" :action="() => { this.addNotification({body: 'Notification', color: 'primary'}); }"/>
 	</div>
