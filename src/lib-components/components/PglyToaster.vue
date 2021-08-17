@@ -10,7 +10,7 @@
 				:color="t.color"
 				:timer="t.timer"
 				:light="t.light"
-				:close="() => onClose(t.id)">
+				:close="t.id !== undefined ? () => onClose(t.id) : undefined">
 				{{ t.body }}
 			</pgly-toast> 
 		</transition-group>

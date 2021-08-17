@@ -1,6 +1,7 @@
 export const colors = [
 	'regular',
 	'transparent',
+	'dark',
 	'primary',
 	'link',
 	'info',

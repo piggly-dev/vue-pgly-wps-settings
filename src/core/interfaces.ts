@@ -1,6 +1,15 @@
-import { EColors } from "./enums";
+import { EColors, ESizes } from "./enums";
 
-export interface IToast {
+export interface IBadge {
+	id?: number,
+	color?: keyof EColors,
+	size?: keyof ESizes,
+	light?: boolean,
+	rounded?: boolean,
+	body: string
+};
+
+export interface INotification {
 	id?: number,
 	color?: keyof EColors,
 	timer?: number,
@@ -8,7 +17,7 @@ export interface IToast {
 	body: string
 };
 
-export interface INotification {
+export interface IToast {
 	id?: number,
 	color?: keyof EColors,
 	timer?: number,

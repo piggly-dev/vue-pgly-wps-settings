@@ -8,7 +8,7 @@
 				:color="n.color"
 				:timer="n.timer"
 				:light="n.light"
-				:close="() => onClose(n.id)">
+				:close="n.id !== undefined ? () => onClose(n.id) : undefined">
 				{{ n.body }}
 			</pgly-notification> 
 		</transition-group>
@@ -19,7 +19,7 @@
 import { defineComponent, PropType } from "@vue/runtime-core";
 
 import PglyNotification from '@/lib-components/elements/PglyNotification.vue';
-import { IToast } from '@/core/interfaces';
+import { INotification } from '@/core/interfaces';
 
 export default defineComponent({
 	name: 'PglyNotifications',
@@ -30,7 +30,7 @@ export default defineComponent({
 
 	props: {
 		notifications: {
-			type: Array as PropType<Array<IToast>>,
+			type: Array as PropType<Array<INotification>>,
 			default: []
 		}
 	},

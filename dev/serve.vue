@@ -3,6 +3,7 @@ import { defineComponent } from 'vue';
 import { 
 	PglyAsyncButton,
 	PglyBadge,
+	PglyBadges,
 	PglyExplorer,
 	PglyLinkButton,
 	PglyNotification,
@@ -20,6 +21,7 @@ export default defineComponent({
 	components: {
 		PglyAsyncButton,
 		PglyBadge,
+		PglyBadges,
 		PglyExplorer,
 		PglyLinkButton,
 		PglyNotification,
@@ -72,6 +74,7 @@ export default defineComponent({
 	<div class="pgly-wps--settings">
 		<pgly-notifications :notifications="notifications" @notificationClose="onNofiticationClose"/>
 		<pgly-toaster :toasts="toasts" @toastClose="onToastClose"/>
+		
 		<pgly-sync-button label="Add Toast" :action="() => { this.addToast({body: 'Toast', color: 'success'}); }"/>
 		<pgly-sync-button label="Add Notification" :action="() => { this.addNotification({body: 'Notification', color: 'primary'}); }"/>
 	</div>
