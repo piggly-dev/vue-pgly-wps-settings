@@ -26,6 +26,10 @@ import { defineComponent, PropType } from "@vue/runtime-core";
 export default defineComponent({
 	name: 'PglyNavigator',
 
+	emits: [
+		'update:modelValue'
+	],
+
 	props: {
 		modelValue: {
 			type: String,
