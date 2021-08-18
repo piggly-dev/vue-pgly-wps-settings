@@ -1,13 +1,7 @@
 # Changelog
 
-## `0.1.0` at `2021-08-17`
+## `0.1.0 - 0.1.3` at `2021-08-17`
 
 * First release.
-
-## `0.1.1` at `2021-08-17`
-
 * `PglyNavigator` catches the first item as selected.
-
-## `0.1.2` at `2021-08-17`
-
 * Fixes at interfaces.
