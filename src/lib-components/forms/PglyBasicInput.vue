@@ -53,7 +53,8 @@ export default defineComponent({
 	name: 'PglyBasicInput',
 
 	emits: [
-		'update:modelValue'
+		'update:modelValue',
+		'afterChange'
 	],
 
 	props: {
@@ -128,6 +129,7 @@ export default defineComponent({
 		onChanged (e: HTMLElementEvent<HTMLInputElement>) : void {
 			if ( this.disabled ) return;
 			this.$emit('update:modelValue', e.target.value);
+			this.$emit('afterChange', e.target.value);
 		}
 	}
 });

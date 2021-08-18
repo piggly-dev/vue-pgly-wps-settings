@@ -37,7 +37,8 @@ export default defineComponent({
 	name: 'PglyBasicCheckbox',
 
 	emits: [
-		'update:modelValue'
+		'update:modelValue',
+		'afterChange'
 	],
 	
 	props: {
@@ -113,6 +114,7 @@ export default defineComponent({
 		onChanged (checked: boolean) : void {
 			if ( this.disabled ) return;
 			this.$emit('update:modelValue', checked);
+			this.$emit('afterChange', checked);
 		}
 	}
 });

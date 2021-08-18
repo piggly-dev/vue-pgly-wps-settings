@@ -1,6 +1,6 @@
 {
   "name": "@piggly/vue-pgly-wps-settings",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A bunch of components to be used at Wordpress Plugin Settings",
   "main": "dist/vue-pgly-wps-settings.ssr.js",
   "browser": "dist/vue-pgly-wps-settings.esm.js",

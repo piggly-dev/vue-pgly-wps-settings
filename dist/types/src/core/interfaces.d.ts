@@ -7,6 +7,11 @@ export interface IBadge {
     rounded?: boolean;
     body: string;
 }
+export interface IField {
+    error: IErrorInput;
+    value: any;
+    options?: Array<ISelectOption>;
+}
 export interface IErrorInput {
     state: boolean;
     message?: string;

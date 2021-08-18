@@ -1955,7 +1955,7 @@ script$5.render = render$5;
 
 var script$4 = defineComponent({
   name: 'PglyBasicCheckbox',
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: Boolean,
@@ -2026,6 +2026,7 @@ var script$4 = defineComponent({
     onChanged(checked) {
       if (this.disabled) return;
       this.$emit('update:modelValue', checked);
+      this.$emit('afterChange', checked);
     }
 
   }
@@ -2068,7 +2069,7 @@ script$4.render = render$4;
 
 var script$3 = defineComponent({
   name: 'PglyBasicInput',
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: String,
@@ -2133,6 +2134,7 @@ var script$3 = defineComponent({
     onChanged(e) {
       if (this.disabled) return;
       this.$emit('update:modelValue', e.target.value);
+      this.$emit('afterChange', e.target.value);
     }
 
   }
@@ -2188,7 +2190,7 @@ var script$2 = defineComponent({
     };
   },
 
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: String,
@@ -2262,6 +2264,7 @@ var script$2 = defineComponent({
       if (this.disabled) return;
       this.open = false;
       this.$emit('update:modelValue', option.value);
+      this.$emit('afterChange', option.value);
     }
 
   }
