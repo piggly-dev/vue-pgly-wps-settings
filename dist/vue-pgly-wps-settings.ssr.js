@@ -1143,6 +1143,7 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
   })], 2);
 }script$h.render = render$h;var script$g = defineComponent({
   name: 'PglyNavigator',
+<<<<<<< HEAD
   data: function data() {
     return {
 <<<<<<< HEAD
@@ -1152,7 +1153,13 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
 >>>>>>> release/0.1.1
     };
   },
+=======
+>>>>>>> release/0.1.5
   props: {
+    modelValue: {
+      type: String,
+      default: undefined
+    },
     items: {
       type: Array,
       default: []
@@ -1167,8 +1174,7 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
   },
   methods: {
     onClick: function onClick(key) {
-      this.lastClicked = key;
-      this.$emit('itemClicked', key);
+      this.$emit('update:modelValue', key);
     }
   }
 });var _hoisted_1$c = ["href", "onClick"];
@@ -1187,7 +1193,7 @@ function render$g(_ctx, _cache, $props, $setup, $data, $options) {
         _ctx.onClick(i.key);
       },
       class: vue.normalizeClass(['pgly-wps--item', {
-        'pgly-wps-is-selected': _ctx.lastClicked === i.key
+        'pgly-wps-is-selected': _ctx.modelValue === i.key
       }])
     }, vue.toDisplayString(i.label), 11, _hoisted_1$c);
   }), 128))], 2);
