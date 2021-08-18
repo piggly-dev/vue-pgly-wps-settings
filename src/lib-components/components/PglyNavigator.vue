@@ -11,7 +11,7 @@
 			@click="() => { if ( i.link !== undefined ) { return; } onClick(i.key); }"
 			:class="[
 				'pgly-wps--item',
-				{'pgly-wps-is-selected': lastClicked === i.key}
+				{'pgly-wps-is-selected': modelValue === i.key}
 			]">
 			{{ i.label }}
 		</a>
@@ -26,13 +26,12 @@ import { defineComponent, PropType } from "@vue/runtime-core";
 export default defineComponent({
 	name: 'PglyNavigator',
 
-	data () {
-		return {
-			lastClicked: this.items[0].key || ''
-		};
-	},
-
 	props: {
+		modelValue: {
+			type: String,
+			default: undefined
+		},
+
 		items: {
 			type: Array as PropType<Array<INavigatorItem>>,
 			default: []
@@ -49,8 +48,7 @@ export default defineComponent({
 
 	methods: {
 		onClick ( key: string ) : void {
-			this.lastClicked = key;
-			this.$emit('itemClicked', key);
+			this.$emit('update:modelValue', key);
 		}
 	}
 });
