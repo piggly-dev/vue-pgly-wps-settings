@@ -1922,7 +1922,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   }, [vue.renderSlot(_ctx.$slots, "default")], 10, _hoisted_1$4);
 }script$5.render = render$5;var script$4 = defineComponent({
   name: 'PglyBasicCheckbox',
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: Boolean,
@@ -1990,6 +1990,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     onChanged: function onChanged(checked) {
       if (this.disabled) return;
       this.$emit('update:modelValue', checked);
+      this.$emit('afterChange', checked);
     }
   }
 });var _hoisted_1$3 = ["for"];
@@ -2027,7 +2028,7 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   }, [_hoisted_3$2, vue.createElementVNode("div", _hoisted_4$2, vue.toDisplayString(_ctx.placeholder), 1)], 10, _hoisted_2$2), _ctx.error.message ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_5$2, vue.toDisplayString(_ctx.error.message), 1)) : vue.createCommentVNode("", true), _ctx.hasDescription ? (vue.openBlock(), vue.createElementBlock("p", _hoisted_6$1, [vue.renderSlot(_ctx.$slots, "description")])) : vue.createCommentVNode("", true)], 2);
 }script$4.render = render$4;var script$3 = defineComponent({
   name: 'PglyBasicInput',
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: String,
@@ -2090,6 +2091,7 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
     onChanged: function onChanged(e) {
       if (this.disabled) return;
       this.$emit('update:modelValue', e.target.value);
+      this.$emit('afterChange', e.target.value);
     }
   }
 });var _hoisted_1$2 = ["for"];
@@ -2138,7 +2140,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
       open: false
     };
   },
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'afterChange'],
   props: {
     modelValue: {
       type: String,
@@ -2212,6 +2214,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
       if (this.disabled) return;
       this.open = false;
       this.$emit('update:modelValue', option.value);
+      this.$emit('afterChange', option.value);
     }
   }
 });var _hoisted_1$1 = ["for"];
