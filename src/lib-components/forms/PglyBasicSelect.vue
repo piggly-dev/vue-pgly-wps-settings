@@ -66,7 +66,8 @@ export default defineComponent({
 	},
 
 	emits: [
-		'update:modelValue'
+		'update:modelValue',
+		'afterChange'
 	],
 
 	props: {
@@ -150,6 +151,7 @@ export default defineComponent({
 
 			this.open = false;
 			this.$emit('update:modelValue', option.value);
+			this.$emit('afterChange', option.value);
 		}
 	}
 });

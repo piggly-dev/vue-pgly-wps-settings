@@ -49,7 +49,7 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
     hasDescription(): boolean;
 }, {
     onChanged(e: HTMLElementEvent<HTMLInputElement>): void;
-}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
+}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, ("update:modelValue" | "afterChange")[], "update:modelValue" | "afterChange", import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
     modelValue?: unknown;
     tabindex?: unknown;
     id?: unknown;
@@ -74,6 +74,7 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
     placeholder?: string | undefined;
 }> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+    onAfterChange?: ((...args: any[]) => any) | undefined;
 }, {
     modelValue: string;
     tabindex: number;

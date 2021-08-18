@@ -48,7 +48,7 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
 }, {
     onOpenSelect(): void;
     onClickItem(option: ISelectOption): void;
-}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
+}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, ("update:modelValue" | "afterChange")[], "update:modelValue" | "afterChange", import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
     modelValue?: unknown;
     id?: unknown;
     options?: unknown;
@@ -71,6 +71,7 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
     placeholder?: string | undefined;
 }> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+    onAfterChange?: ((...args: any[]) => any) | undefined;
 }, {
     modelValue: string;
     options: ISelectOption[];
