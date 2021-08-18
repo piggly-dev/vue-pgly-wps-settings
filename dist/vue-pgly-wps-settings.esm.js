@@ -1102,14 +1102,11 @@ script$h.render = render$h;
 
 var script$g = defineComponent({
   name: 'PglyNavigator',
-
-  data() {
-    return {
-      lastClicked: this.items[0].key || ''
-    };
-  },
-
   props: {
+    modelValue: {
+      type: String,
+      default: undefined
+    },
     items: {
       type: Array,
       default: []
@@ -1124,8 +1121,7 @@ var script$g = defineComponent({
   },
   methods: {
     onClick(key) {
-      this.lastClicked = key;
-      this.$emit('itemClicked', key);
+      this.$emit('update:modelValue', key);
     }
 
   }
@@ -1147,7 +1143,7 @@ function render$g(_ctx, _cache, $props, $setup, $data, $options) {
         _ctx.onClick(i.key);
       },
       class: normalizeClass(['pgly-wps--item', {
-        'pgly-wps-is-selected': _ctx.lastClicked === i.key
+        'pgly-wps-is-selected': _ctx.modelValue === i.key
       }])
     }, toDisplayString(i.label), 11, _hoisted_1$c);
   }), 128))], 2);

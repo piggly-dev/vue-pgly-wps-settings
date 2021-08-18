@@ -6,3 +6,4 @@
 * [FIX] `PglyNavigator` catches the first item as selected.
 * [FIX] Fixes at interfaces.
 * [ADD] New events to forms components.
+* [CHANGE] `PglyNavigator` emit the default `update:modelValue` event.

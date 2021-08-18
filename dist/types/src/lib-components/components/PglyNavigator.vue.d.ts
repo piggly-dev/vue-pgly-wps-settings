@@ -1,6 +1,10 @@
 import { INavigatorItem } from "../../core/interfaces";
 import { PropType } from "@vue/runtime-core";
 declare const _default: import("@vue/runtime-core").DefineComponent<{
+    modelValue: {
+        type: StringConstructor;
+        default: undefined;
+    };
     items: {
         type: PropType<INavigatorItem[]>;
         default: never[];
@@ -10,17 +14,19 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
         default: string;
         validator: (value: string) => boolean;
     };
-}, unknown, {
-    lastClicked: string;
-}, {}, {
+}, unknown, unknown, {}, {
     onClick(key: string): void;
 }, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
+    modelValue?: unknown;
     items?: unknown;
     size?: unknown;
 } & {
     items: INavigatorItem[];
     size: string;
-} & {}> & {}, {
+} & {
+    modelValue?: string | undefined;
+}> & {}, {
+    modelValue: string;
     items: INavigatorItem[];
     size: string;
 }>;
