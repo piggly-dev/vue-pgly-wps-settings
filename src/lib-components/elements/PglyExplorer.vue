@@ -8,7 +8,7 @@
 			{ 'pgly-loading--state': loading }
 		]">
 		<pgly-spinner 
-			:styling="spinnerColor"
+			:color="spinnerColor"
 			v-if="loading"/>
 		<div 
 			v-if="tooltip"
@@ -43,6 +43,17 @@ export default defineComponent({
 	
 	components: { 
 		PglySpinner 
+	},
+
+	data () {
+		return {
+			spinnerColor: 'white'
+		};
+	},
+
+	mounted () {
+		if ( this.light )
+		{ this.spinnerColor = this.color; }
 	},
 
 	props: {
