@@ -1644,6 +1644,9 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["color"])) : vue.createCommentVNode("", true)], 10, _hoisted_1$8);
 }script$9.render = render$9;var script$8 = vue.defineComponent({
   name: 'PglyExplorer',
+  components: {
+    PglySpinner: script$b
+  },
   props: {
     color: {
       type: String,
@@ -1701,7 +1704,7 @@ var _hoisted_3$3 = {
   class: "pgly-wps--data"
 };
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_Spinner = vue.resolveComponent("Spinner");
+  var _component_pgly_spinner = vue.resolveComponent("pgly-spinner");
 
   return vue.openBlock(), vue.createElementBlock("div", {
     class: vue.normalizeClass(['pgly-wps--explorer', "pgly-wps-is-".concat(_ctx.color), {
@@ -1711,7 +1714,7 @@ function render$8(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       'pgly-loading--state': _ctx.loading
     }])
-  }, [_ctx.loading ? (vue.openBlock(), vue.createBlock(_component_Spinner, {
+  }, [_ctx.loading ? (vue.openBlock(), vue.createBlock(_component_pgly_spinner, {
     key: 0,
     styling: _ctx.spinnerColor
   }, null, 8, ["styling"])) : vue.createCommentVNode("", true), _ctx.tooltip ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, vue.createElementVNode("div", _hoisted_3$3, vue.toDisplayString(_ctx.tooltip), 1)])) : vue.createCommentVNode("", true), vue.createElementVNode("strong", null, vue.toDisplayString(_ctx.label), 1), vue.createElementVNode("span", null, vue.toDisplayString(_ctx.value), 1)], 2);

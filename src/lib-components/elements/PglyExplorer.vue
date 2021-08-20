@@ -7,7 +7,7 @@
 			{ 'pgly-wps-is-compact': compact },
 			{ 'pgly-loading--state': loading }
 		]">
-		<Spinner 
+		<pgly-spinner 
 			:styling="spinnerColor"
 			v-if="loading"/>
 		<div 
@@ -36,9 +36,14 @@
 import { defineComponent } from 'vue';
 
 import { colors } from '@/core/constants';
+import PglySpinner from './PglySpinner.vue';
 
 export default defineComponent({
 	name: 'PglyExplorer',
+	
+	components: { 
+		PglySpinner 
+	},
 
 	props: {
 		color: {
