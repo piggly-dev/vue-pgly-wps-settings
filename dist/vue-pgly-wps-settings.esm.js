@@ -1674,7 +1674,7 @@ var script$8 = defineComponent$1({
     },
     loading: {
       type: Boolean,
-      default: true
+      default: false
     },
     value: {
       type: String,

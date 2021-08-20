@@ -8,6 +8,6 @@
 * [ADD] New events to forms components.
 * [CHANGE] `PglyNavigator` emit the default `update:modelValue` event.
 
-## `0.1.6 - 0.1.8` at `2021-08-20`
+## `0.1.6 - 0.1.9` at `2021-08-20`
 
 * [CHANGE] `PglyExplorer` has `loading` prop.
