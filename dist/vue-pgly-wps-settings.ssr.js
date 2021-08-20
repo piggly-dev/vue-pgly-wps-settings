@@ -1671,7 +1671,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
     },
     loading: {
       type: Boolean,
-      default: true
+      default: false
     },
     value: {
       type: String,
