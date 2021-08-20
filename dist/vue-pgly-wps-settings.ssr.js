@@ -1143,18 +1143,7 @@ var buttonTypes = ['regular', 'compact', 'expanded'];var script$i = defineCompon
   })], 2);
 }script$h.render = render$h;var script$g = defineComponent({
   name: 'PglyNavigator',
-<<<<<<< HEAD
-  data: function data() {
-    return {
-<<<<<<< HEAD
-      lastClicked: ''
-=======
-      lastClicked: this.items[0].key || ''
->>>>>>> release/0.1.1
-    };
-  },
-=======
->>>>>>> release/0.1.5
+  emits: ['update:modelValue'],
   props: {
     modelValue: {
       type: String,
@@ -1667,6 +1656,10 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
       type: String,
       required: true
     },
+    loading: {
+      type: Boolean,
+      default: true
+    },
     value: {
       type: String,
       required: true
@@ -1685,7 +1678,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }
 });var _hoisted_1$7 = {
-  key: 0,
+  key: 1,
   class: "pgly-wps--tooltip"
 };
 
@@ -1708,13 +1701,20 @@ var _hoisted_3$3 = {
   class: "pgly-wps--data"
 };
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Spinner = vue.resolveComponent("Spinner");
+
   return vue.openBlock(), vue.createElementBlock("div", {
     class: vue.normalizeClass(['pgly-wps--explorer', "pgly-wps-is-".concat(_ctx.color), {
       'pgly-wps-is-light': _ctx.light
     }, {
       'pgly-wps-is-compact': _ctx.compact
+    }, {
+      'pgly-loading--state': _ctx.loading
     }])
-  }, [_ctx.tooltip ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, vue.createElementVNode("div", _hoisted_3$3, vue.toDisplayString(_ctx.tooltip), 1)])) : vue.createCommentVNode("", true), vue.createElementVNode("strong", null, vue.toDisplayString(_ctx.label), 1), vue.createElementVNode("span", null, vue.toDisplayString(_ctx.value), 1)], 2);
+  }, [_ctx.loading ? (vue.openBlock(), vue.createBlock(_component_Spinner, {
+    key: 0,
+    styling: _ctx.spinnerColor
+  }, null, 8, ["styling"])) : vue.createCommentVNode("", true), _ctx.tooltip ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, vue.createElementVNode("div", _hoisted_3$3, vue.toDisplayString(_ctx.tooltip), 1)])) : vue.createCommentVNode("", true), vue.createElementVNode("strong", null, vue.toDisplayString(_ctx.label), 1), vue.createElementVNode("span", null, vue.toDisplayString(_ctx.value), 1)], 2);
 }script$8.render = render$8;var script$7 = defineComponent({
   name: 'PglyLinkButton',
   props: {

@@ -1102,20 +1102,7 @@ script$h.render = render$h;
 
 var script$g = defineComponent({
   name: 'PglyNavigator',
-<<<<<<< HEAD
-
-  data() {
-    return {
-<<<<<<< HEAD
-      lastClicked: ''
-=======
-      lastClicked: this.items[0].key || ''
->>>>>>> release/0.1.1
-    };
-  },
-
-=======
->>>>>>> release/0.1.5
+  emits: ['update:modelValue'],
   props: {
     modelValue: {
       type: String,
@@ -1669,6 +1656,10 @@ var script$8 = defineComponent$1({
       type: String,
       required: true
     },
+    loading: {
+      type: Boolean,
+      default: true
+    },
     value: {
       type: String,
       required: true
@@ -1689,7 +1680,7 @@ var script$8 = defineComponent$1({
 });
 
 const _hoisted_1$7 = {
-  key: 0,
+  key: 1,
   class: "pgly-wps--tooltip"
 };
 
@@ -1712,13 +1703,20 @@ const _hoisted_3$3 = {
   class: "pgly-wps--data"
 };
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Spinner = resolveComponent("Spinner");
+
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(['pgly-wps--explorer', `pgly-wps-is-${_ctx.color}`, {
       'pgly-wps-is-light': _ctx.light
     }, {
       'pgly-wps-is-compact': _ctx.compact
+    }, {
+      'pgly-loading--state': _ctx.loading
     }])
-  }, [_ctx.tooltip ? (openBlock(), createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, createElementVNode("div", _hoisted_3$3, toDisplayString(_ctx.tooltip), 1)])) : createCommentVNode("", true), createElementVNode("strong", null, toDisplayString(_ctx.label), 1), createElementVNode("span", null, toDisplayString(_ctx.value), 1)], 2);
+  }, [_ctx.loading ? (openBlock(), createBlock(_component_Spinner, {
+    key: 0,
+    styling: _ctx.spinnerColor
+  }, null, 8, ["styling"])) : createCommentVNode("", true), _ctx.tooltip ? (openBlock(), createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, createElementVNode("div", _hoisted_3$3, toDisplayString(_ctx.tooltip), 1)])) : createCommentVNode("", true), createElementVNode("strong", null, toDisplayString(_ctx.label), 1), createElementVNode("span", null, toDisplayString(_ctx.value), 1)], 2);
 }
 
 script$8.render = render$8;

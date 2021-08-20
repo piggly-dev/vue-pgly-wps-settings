@@ -16,7 +16,7 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
     };
 }, unknown, unknown, {}, {
     onClick(key: string): void;
-}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
+}, import("@vue/runtime-core").ComponentOptionsMixin, import("@vue/runtime-core").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("@vue/runtime-core").VNodeProps & import("@vue/runtime-core").AllowedComponentProps & import("@vue/runtime-core").ComponentCustomProps, Readonly<{
     modelValue?: unknown;
     items?: unknown;
     size?: unknown;
@@ -25,7 +25,9 @@ declare const _default: import("@vue/runtime-core").DefineComponent<{
     size: string;
 } & {
     modelValue?: string | undefined;
-}> & {}, {
+}> & {
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+}, {
     modelValue: string;
     items: INavigatorItem[];
     size: string;
