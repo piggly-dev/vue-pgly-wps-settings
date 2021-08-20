@@ -1644,6 +1644,9 @@ script$9.render = render$9;
 
 var script$8 = defineComponent$1({
   name: 'PglyExplorer',
+  components: {
+    PglySpinner: script$b
+  },
   props: {
     color: {
       type: String,
@@ -1703,7 +1706,7 @@ const _hoisted_3$3 = {
   class: "pgly-wps--data"
 };
 function render$8(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Spinner = resolveComponent("Spinner");
+  const _component_pgly_spinner = resolveComponent("pgly-spinner");
 
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(['pgly-wps--explorer', `pgly-wps-is-${_ctx.color}`, {
@@ -1713,7 +1716,7 @@ function render$8(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       'pgly-loading--state': _ctx.loading
     }])
-  }, [_ctx.loading ? (openBlock(), createBlock(_component_Spinner, {
+  }, [_ctx.loading ? (openBlock(), createBlock(_component_pgly_spinner, {
     key: 0,
     styling: _ctx.spinnerColor
   }, null, 8, ["styling"])) : createCommentVNode("", true), _ctx.tooltip ? (openBlock(), createElementBlock("div", _hoisted_1$7, [_hoisted_2$3, createElementVNode("div", _hoisted_3$3, toDisplayString(_ctx.tooltip), 1)])) : createCommentVNode("", true), createElementVNode("strong", null, toDisplayString(_ctx.label), 1), createElementVNode("span", null, toDisplayString(_ctx.value), 1)], 2);
