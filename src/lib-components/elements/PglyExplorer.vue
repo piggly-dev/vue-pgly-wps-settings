@@ -4,8 +4,12 @@
 			'pgly-wps--explorer',
 			`pgly-wps-is-${color}`,
 			{ 'pgly-wps-is-light': light },
-			{ 'pgly-wps-is-compact': compact }
+			{ 'pgly-wps-is-compact': compact },
+			{ 'pgly-loading--state': loading }
 		]">
+		<Spinner 
+			:styling="spinnerColor"
+			v-if="loading"/>
 		<div 
 			v-if="tooltip"
 			class="pgly-wps--tooltip">
@@ -48,6 +52,11 @@ export default defineComponent({
 		label: {
 			type: String,
 			required: true
+		},
+
+		loading: {
+			type: Boolean,
+			default: true
 		},
 
 		value: {

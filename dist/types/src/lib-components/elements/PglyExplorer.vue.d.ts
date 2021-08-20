@@ -8,6 +8,10 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         required: true;
     };
+    loading: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     value: {
         type: StringConstructor;
         required: true;
@@ -27,6 +31,7 @@ declare const _default: import("vue").DefineComponent<{
 }, unknown, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
     color?: unknown;
     label?: unknown;
+    loading?: unknown;
     value?: unknown;
     tooltip?: unknown;
     compact?: unknown;
@@ -34,6 +39,7 @@ declare const _default: import("vue").DefineComponent<{
 } & {
     color: string;
     label: string;
+    loading: boolean;
     value: string;
     compact: boolean;
     light: boolean;
@@ -41,6 +47,7 @@ declare const _default: import("vue").DefineComponent<{
     tooltip?: string | undefined;
 }> & {}, {
     color: string;
+    loading: boolean;
     tooltip: string;
     compact: boolean;
     light: boolean;
